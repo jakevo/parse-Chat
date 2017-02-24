@@ -7,11 +7,23 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user = PFUser()
+        user.username = "daniel123"
+        user.password = "1234"
+        user.signUpInBackground { (succeed, error) in
+            if succeed{
+                print("sign up suced")
+            }else{
+                print(error?.localizedDescription)
+            }
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
